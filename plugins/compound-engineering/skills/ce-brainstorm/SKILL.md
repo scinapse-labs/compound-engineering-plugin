@@ -28,7 +28,7 @@ This skill does not implement code. It explores, clarifies, and documents decisi
 1. **Ask one question at a time** - Do not batch several unrelated questions into one message.
 2. **Prefer single-select multiple choice** - Use single-select when choosing one direction, one priority, or one next step.
 3. **Use multi-select rarely and intentionally** - Use it only for compatible sets such as goals, constraints, non-goals, or success criteria that can all coexist. If prioritization matters, follow up by asking which selected item is primary.
-4. **Keep this workflow cross-platform** - Use a platform's interactive question mechanism when available; otherwise present numbered options in chat and wait for the user's reply.
+4. **Use the platform's question tool when available** - When asking the user a question, prefer the platform's blocking question tool if one exists (`AskUserQuestion` in Claude Code, `request_user_input` in Codex CLI, `ask_user` in Gemini CLI). Otherwise, present numbered options in chat and end the turn.
 
 ## Output Guidance
 
@@ -113,7 +113,7 @@ Before generating approaches, challenge the request to catch misframing. Match d
 
 #### 1.3 Collaborative Dialogue
 
-Use the platform's interactive question mechanism when available. Otherwise, present numbered options in chat and wait for the user's reply before proceeding.
+Use the platform's blocking question tool when available (see Interaction Rules). Otherwise, present numbered options in chat and end the turn.
 
 **Guidelines:**
 - Ask questions **one at a time**
@@ -247,7 +247,7 @@ If a document contains outstanding questions:
 
 #### 4.1 Present Next-Step Options
 
-Present next steps using the platform's interactive question mechanism when available. Otherwise present numbered options in chat and wait for the user's reply.
+Present next steps using the platform's blocking question tool when available (see Interaction Rules). Otherwise present numbered options in chat and end the turn.
 
 If `Resolve Before Planning` contains any items:
 - Ask the blocking questions now, one at a time, by default

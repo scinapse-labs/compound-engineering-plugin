@@ -76,10 +76,10 @@ When adding or modifying skills, verify compliance with skill-creator spec:
 - [ ] Use imperative/infinitive form (verb-first instructions)
 - [ ] Avoid second person ("you should") - use objective language ("To accomplish X, do Y")
 
-### AskUserQuestion Usage
+### Cross-Platform User Interaction
 
-- [ ] Avoid `AskUserQuestion` for skills intended to run cross-platform (see `ce-brainstorm/SKILL.md` pattern)
-- [ ] If the skill does use `AskUserQuestion`, it must include an "Interaction Method" preamble explaining the numbered-list fallback for non-Claude environments
+- [ ] When a skill needs to ask the user a question, instruct use of the platform's blocking question tool and name the known equivalents (`AskUserQuestion` in Claude Code, `request_user_input` in Codex CLI, `ask_user` in Gemini CLI)
+- [ ] Include a fallback for environments without a question tool (e.g., present numbered options and end the turn)
 
 ### Quick Validation Command
 
